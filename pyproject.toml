@@ -1,0 +1,30 @@
+[project]
+name = "option-pricing-mcp"
+version = "0.1.0"
+description = "MCP server for T1mR0m's Option-Pricing-Library: option pricing, Greeks, implied vol and vol surfaces."
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.10"
+authors = [{ name = "T1mR0m", email = "118480078+T1mR0m@users.noreply.github.com" }]
+dependencies = [
+    "mcp>=2.3,<3",
+    "numpy",
+    "pandas",
+    "scipy",
+    "yfinance",
+    "arch",
+]
+
+[project.urls]
+"Original library" = "https://github.com/T1mR0m/Option-Pricing-Library"
+
+[project.scripts]
+option-pricing-mcp = "option_pricing_mcp.server:main"
+
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["option_pricing_mcp", "core", "market_data", "products", "vol_calibration"]
